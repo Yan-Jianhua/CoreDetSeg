@@ -66,14 +66,14 @@ To train the YOLOv13 on your own dataset, first updata the **data.yaml** configu
 python train_mydataset.py
 ```
 ## Model prediction and evaluation
-Note that the Code will be available once the paper is accepted for publication.
-The **test_metrcis.py** script evaluates the trained YOLO11 performance on test datasets. It calculates four evaluation metrics including precision, recall, mAP@50, and mAP@50-95 for quantitative model assessment. To evaluate the performance of the trained YOLO11 on unseen dataset, first updata the **test.yaml** configuration file with your dataset paths. Then, modify the parameters in **test_metrcis.py** and run the following command: 
+**Note： The Code will be available once the paper is accepted for publication.**
+The **YOLOv13-SAM_PreEval.py** script performs batch prediction and evaluation. It first detects objects using YOLO13, then generates masks using SAM with box prompts. The script prints COCO-style evaluation metrics (AP@0.5, AP@0.5:0.95 for both bounding boxes and segmentation), per-class precision/recall/F1, and a confusion matrix in the console. It also saves the predicted results (PNG images containing the original image overlaid with semi‑transparent colored masks, bounding boxes, and class labels) to the specified output folder. To run the evaluation on your dataset, first update the configuration parameters at the top of **YOLOv13-SAM_PreEval.py**. Then run the following command:
 ```
-python test_metrcis.py
+python YOLOv13-SAM_PreEval.py
 ```
 
 ## RQD Result Visualization
-Note： The Code will be available once the paper is accepted for publication.
+**Note： The Code will be available once the paper is accepted for publication.**
 The **rqd_visual.py** script performs RQD analysis on core box images using YOLOv13-SAM. It detects core segments, calculates RQD values along multiple scanlines, and provides an interactive visualization interface with real-time parameter adjustment. To perform RQD analysis on a single core box image, first modify the **User adjustable parameters** section at the top of **rqd_visual.py**. Then run the following command:
 ```
 python rqd_visual.py
