@@ -1,0 +1,13 @@
+train: E:\******\******\dataset\images\train
+val: E:\******\******\dataset\images\val
+
+# Model 's'
+scales: 's'
+#pretrained: True
+
+# Number of classes
+nc: 6
+names: ['Granite', 'Sandstone', 'Gneiss', 'Tuff', 'Rhyolite', 'Dolomite']
+
+# Class weights
+class_weights: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
