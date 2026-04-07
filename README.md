@@ -2,10 +2,10 @@
 A detection-promptable segmentation framework (CoreDetSeg) that integrates YOLOv13 and SAM for automated drill core lithology classification and RQD estimation.
 
 # License
-Our work builds upon the YOLO13 and Segment Anything Model (SAM) implementations from Ultralytics, which are licensed under the GNU Affero General Public License v3.0 and the Apache 2.0 License, respectively. Our project code is released under the MIT License.
+Our work builds upon the YOLO13 and SAM implementations from Ultralytics, which are licensed under the GNU Affero General Public License v3.0 and the Apache 2.0 License, respectively. Our project code is released under the MIT License.
 
 # Installation dependencies
-Install the dependencies for this project refers to **https://github.com/iMoonLab/yolov13/blob/main/README.md**.
+To install the dependencies for this project,please refer to **https://github.com/iMoonLab/yolov13/blob/main/README.md**.
 
 # Usage
 ## Dataset structure
@@ -61,19 +61,18 @@ To convert JSON annotations (e.g., from LabelMe) to YOLO format and split the da
 python preprocess_mydataset.py
 ```
 ## Model training
-To train the YOLOv13 on your own dataset, first updata the **data.yaml** configuration file with your dataset paths and classes. Then, modify the parameters (e.g., hyperparameters and augmentation strategies) in **train_mydataset.py** and run the following command: 
+To train YOLOv13 on your own dataset, first update the **data.yaml** configuration file with your dataset paths and classes. Then, modify the parameters (e.g., hyperparameters and augmentation strategies) in **train_mydataset.py** and run the following command: 
 ```
 python train_mydataset.py
 ```
 ## Model prediction and evaluation
-**Note： The Code will be available once the paper is accepted for publication.**
+**Note: The Code will be available once the paper is accepted for publication.**
 The **YOLOv13-SAM_PreEval.py** script performs batch prediction and evaluation. It first detects objects using YOLO13, then generates masks using SAM with box prompts. The script prints COCO-style evaluation metrics (AP@0.5, AP@0.5:0.95 for both bounding boxes and segmentation), per-class precision/recall/F1, and a confusion matrix in the console. It also saves the predicted results (PNG images containing the original image overlaid with semi‑transparent colored masks, bounding boxes, and class labels) to the specified output folder. To run the evaluation on your dataset, first update the configuration parameters at the top of **YOLOv13-SAM_PreEval.py**. Then run the following command:
 ```
 python YOLOv13-SAM_PreEval.py
 ```
-
 ## RQD Result Visualization
-**Note： The Code will be available once the paper is accepted for publication.**
+**Note: The Code will be available once the paper is accepted for publication.**
 The **rqd_visual.py** script performs RQD analysis on core box images using YOLOv13-SAM. It detects core segments, calculates RQD values along multiple scanlines, and provides an interactive visualization interface with real-time parameter adjustment. To perform RQD analysis on a single core box image, first modify the **User adjustable parameters** section at the top of **rqd_visual.py**. Then run the following command:
 ```
 python rqd_visual.py
